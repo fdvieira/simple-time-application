@@ -65,3 +65,4 @@ In the path `terraform/prd/aws/eu-west-1/s3/remotestate` is where all the the S3
 ## References
 - https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest
 - https://registry.terraform.io/modules/terraform-aws-modules/vpc/aws/latest
+- https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest
