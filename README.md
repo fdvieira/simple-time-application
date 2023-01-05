@@ -53,7 +53,7 @@ In the path `terraform/prd/aws/eu-west-1/eks/general` is where all the EKS resou
    - Multiple IAM roles/policies being deployed on the background:
         - Allow EKS nodes and cluster to assume role `sts:AssumeRole`;
         - Allow `AmazonEC2ContainerRegistryReadOnly`, `AmazonEKSWorkerNodePolicy`, `AmazonEKS_CNI_Policy`
-    - Multiple security groups being deployed on the background:
+   - Multiple security groups being deployed on the background:
         - EKS cluster security group that allows 443 requests from the nodegroups to the EKS API;
         - EKS node shared security group with multiple rules: Accepting traffic from the internet (0.0.0.0/0), accept requests from the EKS API to the nodegroups, accept requests from the cluster API to node groups 443, accept requests from the cluster API to node 4443/tcp webhook, accept requests from the cluster API to the 8443/tcp webhook, accept requests from the cluster API to the 9443/tcp webhook, accept requests from the cluster API to the 10250/tcp node kubelets, accept requests from the cluster API to the 1025/tcp node ingress on ephemeral ports, accept requests from the cluster API to the 53/tcp node CoreDNS, accept requests from the cluster API to the 53/tcp node CoreDNS UDP;
     - Create custom KMS key to enable encryption. Also includes permissions so EKS can use this KMS key.
