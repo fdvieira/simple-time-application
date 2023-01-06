@@ -1,5 +1,7 @@
 variable "ecr_name" {}
 
+variable "encrypt_type" {}
+
 variable "image_mutability" {}
 
-variable "encrypt_type" {}
+variable "region" {}
