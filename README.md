@@ -56,7 +56,7 @@ In the path `terraform/prd/aws/eu-west-1/eks/general` is where all the EKS resou
    - Multiple security groups being deployed on the background:
         - EKS cluster security group that allows 443 requests from the nodegroups to the EKS API;
         - EKS node shared security group with multiple rules: Accepting traffic from the internet (0.0.0.0/0), accept requests from the EKS API to the nodegroups, accept requests from the cluster API to node groups 443, accept requests from the cluster API to node 4443/tcp webhook, accept requests from the cluster API to the 8443/tcp webhook, accept requests from the cluster API to the 9443/tcp webhook, accept requests from the cluster API to the 10250/tcp node kubelets, accept requests from the cluster API to the 1025/tcp node ingress on ephemeral ports, accept requests from the cluster API to the 53/tcp node CoreDNS, accept requests from the cluster API to the 53/tcp node CoreDNS UDP;
-    - Create custom KMS key to enable encryption. Also includes permissions so EKS can use this KMS key.
+   - Create custom KMS key to enable encryption. Also includes permissions so EKS can use this KMS key.
 #### `terraform/prd/aws/eu-west-1/s3/remotestate`
 In the path `terraform/prd/aws/eu-west-1/s3/remotestate` is where all the the S3, that will be used for remote state management, is deployed by making use of the AWS S3 module available [online](https://registry.terraform.io/modules/terraform-aws-modules/s3-bucket/aws/latest). There are some options in this module, in this specific case what's being deployed:
 - Give the bucket a name and set the acl to private;
