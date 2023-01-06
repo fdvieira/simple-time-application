@@ -1,7 +1,7 @@
-variable "region" {}
+variable "bucket_acl" {}
 
 variable "bucket_name" {}
 
 variable "dynamodb_name" {}
 
-variable "bucket_acl" {}
+variable "region" {}
