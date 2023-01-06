@@ -1,0 +1,6 @@
+# Terraform
+##  Local .terraform directories
+**/.terraform/*
+
+## Mac DS_Store files
+*.DS_Store

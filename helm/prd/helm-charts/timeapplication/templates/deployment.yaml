@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}-web
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.web.replicas }}
+  selector:
+    matchLabels:
+      app: simple-time-app
+      role: web
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: simple-time-app
+        role: web
+    spec:
+      containers:
+        - name: {{ .Release.Name }}-web
+          image: {{ .Values.web.image }}:{{ .Values.web.tag }}
+          ports:
+            - name: timeapp
+              containerPort: 8080
+          resources:
+            {{- toYaml .Values.web.resources | nindent 12 }}
+          readinessProbe:
+            httpGet:
+              port: timeapp
+              path: /health
+          livenessProbe:
+            httpGet:
+              port: timeapp
+              path: /health
