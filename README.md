@@ -1,7 +1,7 @@
 # Simple time application
 This repository contains a simple python based application deployed in an EKS cluster that exposes two endpoints:
-- http://host:8080/ - returns local time in New-York, Berlin, Tokyo in HTML format
-- http://host:8080/health - return status code 200, in JSON format
+- http://host:8080/ - returns local time in New-York, Berlin, Tokyo in HTML format;
+- http://host:8080/health - return status code 200, in JSON format.
 
 ## Repository structure
 This repository is divided in the following way:
@@ -43,7 +43,7 @@ In the path `terraform/prd/aws/eu-west-1/base/general` is where all the network 
 #### `terraform/prd/aws/eu-west-1/ecr/general`
 In the path `terraform/prd/aws/eu-west-1/ecr/general` is where the ECR resource is deployed by making use of a  [module](terraform_modules/ecr) that was created for the purpose. An ECR is created with the following parameters:
 - A name is set for the ECR, that will be in the form of `repo/image`;
-- Mutability is set to immutable to avoid pushes to the ECR with the same tatg. So if you attempt to push an image with a tag that is already in the repository an error will be returned;
+- Mutability is set to immutable to avoid pushes to the ECR with the same tag. So if you attempt to push an image with a tag that is already in the repository an error will be returned;
 
 #### `terraform/prd/aws/eu-west-1/eks/general`
 In the path `terraform/prd/aws/eu-west-1/eks/general` is where all the EKS resources are deployed by making use of the AWS EKS module available [online](https://registry.terraform.io/modules/terraform-aws-modules/eks/aws/latest). There are a lot of available options in this module, in this specific case what's being deployed:
